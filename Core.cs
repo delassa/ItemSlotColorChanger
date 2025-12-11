@@ -81,9 +81,14 @@ public class Core : MelonMod
         // Grab some defaults from the game before we start changing colors
     }
 
+   
     public override void OnUpdate()
     {
-        if (!_mainSceneLoaded) return;
+        if (!_mainSceneLoaded)
+        {
+            // make sure we apply the first update to the hotbar when we enter the main scene
+            _colorsModified = true;
+        }
         
         // This gets storage containers
         if (Singleton<StorageMenu>.InstanceExists)
@@ -97,24 +102,23 @@ public class Core : MelonMod
             }
         }
 
-            // Player hotbar color change, check for modification so it doesn't constantly override the highlighting of the active item
-            if (PlayerSingleton<PlayerInventory>.InstanceExists)
+        // Player hotbar color change, check for modification so it doesn't constantly override the highlighting of the active item
+        if (PlayerSingleton<PlayerInventory>.InstanceExists)
+        {
+            if (PlayerSingleton<PlayerInventory>.Instance.HotbarEnabled)
             {
-                if (PlayerSingleton<PlayerInventory>.Instance.HotbarEnabled)
+                if (_colorsModified)
                 {
-                    if (_colorsModified)
+                    foreach (var slotUI in PlayerSingleton<PlayerInventory>.Instance.slotUIs)
                     {
-
-                        foreach (var slotUI in PlayerSingleton<PlayerInventory>.Instance.slotUIs)
-                        {
-                            slotUI.SetNormalColor(_hotbarColorPref.Value);
-                            slotUI.SetHighlightColor(_hotbarHighlightColorPref.Value);
-                        }
-
-                        _colorsModified = false;
+                        slotUI.SetNormalColor(_hotbarColorPref.Value);
+                        slotUI.SetHighlightColor(_hotbarHighlightColorPref.Value);
                     }
+
+                    _colorsModified = false;
                 }
             }
+        }
 
         if (Singleton<PackagingStationCanvas>.InstanceExists)
         {
