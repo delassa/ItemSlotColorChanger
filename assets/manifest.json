@@ -1,0 +1,10 @@
+{
+    "name": "ItemSlotColorChanger",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/delassa",
+    "description": "Changes the color and transparency of item slots for clearer visibility.",
+    "dependencies": [
+        "LavaGang-MelonLoader-0.7.0",
+        "the_croods-SwapperPlugin-1.2.1"
+    ]
+}

@@ -1,0 +1,9 @@
+﻿<Project>
+    <PropertyGroup>
+        <!-- Paths and conditions -->
+        <S1MonoDir>C:\S1-modding\gamefiles\Schedule I Mono</S1MonoDir>
+        <S1CPPDir>C:\S1-modding\gamefiles\Schedule I IL2CPP</S1CPPDir>
+        <CommonDir>C:\S1-modding\common</CommonDir>
+        <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    </PropertyGroup>
+</Project>
