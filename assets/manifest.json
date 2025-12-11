@@ -1,6 +1,6 @@
 {
     "name": "ItemSlotColorChanger",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/delassa",
     "description": "Changes the color and transparency of item slots for clearer visibility.",
     "dependencies": [
